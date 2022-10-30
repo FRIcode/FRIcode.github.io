@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multidisciplinarni projekti na UL</title>
+    <link>http://FRIcode.github.io/galerija/</link>
+    <description>Recent content on Multidisciplinarni projekti na UL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>sl</language><atom:link href="http://FRIcode.github.io/galerija/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

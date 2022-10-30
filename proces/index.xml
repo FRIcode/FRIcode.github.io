@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proces on Multidisciplinarni projekti na UL</title>
+    <link>http://FRIcode.github.io/proces/</link>
+    <description>Recent content in Proces on Multidisciplinarni projekti na UL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>sl</language>
+    <lastBuildDate>Thu, 21 Apr 2022 15:15:54 +0200</lastBuildDate><atom:link href="http://FRIcode.github.io/proces/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

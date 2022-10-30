@@ -1,0 +1,573 @@
+/* ===================== FONTS ======================== */
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('../fonts/SuisseIntl-Regular.woff2') format('woff2'),
+    url('../fonts/SuisseIntl-Regular.woff') format('woff'),
+    url('../fonts/SuisseIntl-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Fine';
+    src: url('../fonts/TiemposFine-Medium.woff2') format('woff2'),
+    url('../fonts/TiemposFine-Medium.woff') format('woff'),
+    url('../fonts/TiemposFine-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Intl Medium';
+    src: url('../fonts/SuisseIntl-Medium.woff2') format('woff2'),
+    url('../fonts/SuisseIntl-Medium.woff') format('woff'),
+    url('../fonts/SuisseIntl-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: 'Tiempos Fine', sans-serif; margin: 0; }
+h1 { font-size: 2.667rem; line-height: 1.2; }
+h2 { font-size: 2.25rem; line-height: normal; }
+h3 { font-size: 1.583rem; line-height: 1.25; }
+h4 { font-size: 1.333rem; line-height: 1.2; }
+h5 { font-size: 1rem; line-height: 1.4; }
+p { font-family: 'Suisse Intl', sans-serif; line-height: 1.4; margin: 0; font-size: 1rem; }
+.links { font-family: 'Suisse Intl Medium', sans-serif; line-height: 1.3; }
+.metas { font-family: 'Suisse Intl', sans-serif; font-size: 0.542rem; line-height: 1.3; letter-spacing: 2px; }
+.p3 { font-family: 'Suisse Intl', sans-serif; font-size: 0.667rem;  line-height:1.4;}
+
+ul, il { padding: 0; margin: 0;}
+
+.mb-1 { margin-bottom: 1.042rem; }
+.mb-2 { margin-bottom: 1.875rem; }
+.mb-2_5 { margin-bottom: 2.5rem; }
+.mb-3 { margin-bottom: 3.5rem;}
+
+html { font-size: 24px; }
+
+
+html,body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Suisse Intl', sans-serif;
+    background: linear-gradient(180deg,
+    rgba(205,208,244,1), rgba(171,177,237,1));
+    background-position: 0 0 !important;
+    background-size: 100% !important;;
+    object-fit: cover;
+    background-repeat: no-repeat !important;
+}
+
+p img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    width: 84%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ============== HEADER ================*/
+
+header {
+    position: fixed;
+    width: inherit;
+    height: 100px;
+}
+
+.header-links { width: auto;}
+
+.header-links > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    color: black;
+    font-family: 'Suisse Intl Medium', sans-serif;
+    text-decoration: none;
+}
+
+.menu-dekstop {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 8%;
+    width: 84%;
+    margin: auto;
+}
+
+header .scrolled {
+    padding: 1rem 8%;
+    transform: scale(1); /* you need a scale here to allow it to transition in both directions */
+    transition: 0.15s all ease;
+    background: rgba(205,208,244, 0.85);
+}
+
+.navbar {
+    display: flex;
+    gap: 60px;
+}
+
+.navbar > a {
+    text-decoration: none;
+    color:black;
+    font-family: 'Suisse Intl', sans-serif;
+    font-size: 18px;
+}
+
+.menu-mobile{
+    position: fixed;
+    display: none;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 92%;
+    padding: 10px 4%;
+}
+
+.menu-mobile .header-links {
+    padding: 1rem;
+}
+
+.menu-wrap {
+    display: flex;
+    z-index: 1;
+}
+
+.menu-wrap .toggler{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+}
+.menu-wrap .hamburger{
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Hamburger line */
+.menu-wrap .hamburger >div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+/* Top and bottom lines */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+/* Moves line down */
+.menu-wrap .hamburger > div:after{
+    top: 10px;
+}
+/* Toggler animate */
+.menu-wrap .toggler:checked + .hamburger > div{
+    transform: rotate(135deg);
+}
+/* Turn Lines into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after{
+    top: 0;
+    transform: rotate(90deg);
+}
+/* Rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div{
+    transform: rotate(225deg);
+}
+/* Show menu */
+.menu-wrap .toggler:checked ~ .menu{
+    visibility: visible;
+}
+.menu-wrap .toggler:checked ~ .menu > div{
+    transform: scale(1);
+    transition-duration: 0.75s;
+}
+.menu-wrap .toggler:checked ~ .menu > div > div{
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu{
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-wrap .menu > div{
+    background-color: #CDD0F4;
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vh;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+.menu-wrap .menu > div >div{
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #000;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.menu-wrap .menu >div > div > ul > li > a{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+/* ============== MAIN ================ */
+
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+main {
+    padding-top: 5rem;
+    width: 100%;
+    margin: auto;
+}
+
+.hero-section {
+    padding-top: 8.5rem;
+    text-align: center;
+}
+
+.hero-section > a {
+    text-decoration: underline;
+    color: black;
+    font-family: 'Suisse Intl Medium', sans-serif;
+}
+
+.about-section h3, .mentors h3 {
+    width: 90%;
+    margin-left: 0;
+}
+
+/* ============== Post Section */
+
+.post-item {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.post-item-right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 790px;
+    gap: 20px;
+}
+
+.post-item-left {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 0 1 376px;
+    gap: 20px;
+}
+
+.post-item-meta {
+    font-family: "Suisse Intl", sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.post-item-left-title {
+    margin: 0;
+}
+
+.post-item-link {
+    text-decoration: none;
+    color: black;
+}
+
+.divider {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-color: black;
+}
+
+/* ============== Mentors Section */
+.mentors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mentors-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: start;
+    gap: 20px;
+}
+
+.mentors-name {
+    font-family: 'Tiempos Fine', sans-serif;
+    line-height: 1.6;
+    font-size: 24px;
+}
+
+.mentors-fac {
+    font-size: 16px;
+    font-family: 'Suisse Intl', sans-serif;
+    line-height: 1.4;
+}
+
+
+/* ============== Students Section */
+
+.student-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+}
+
+.student-item {
+    width: 180px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.student-name, .student-faculty {
+    font-family: 'Suisse Intl', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+
+/* ============== FOOTER ================ */
+
+footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    min-height: 300px;
+}
+
+.footer-text {
+    margin: auto;
+    width: auto;
+    max-width: 620px;
+    font-family: 'Tiempos Fine', sans-serif;
+    font-size: 38px;
+    line-height: 1.5;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer-link {
+    text-decoration: underline;
+    color: black;
+}
+
+/* ============== SINGLE POST PAGE ================ */
+
+.single-post-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-yt-section, .post-gallery-section {
+    padding-top: 3.5rem;
+}
+
+.post-section-title {
+    margin-top: 1.063rem;
+    margin-bottom: 0rem;
+}
+
+.post-video-embed {
+    margin: auto;
+    width: 85%;
+    aspect-ratio: 16/9;
+}
+
+.post-video-embed iframe { 
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    resize: both;
+    overflow: auto;
+}
+
+.post-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1.667rem;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px
+}
+
+.results-title {
+    margin-bottom: 0.5rem;
+}
+
+.results-item {
+    font-family: 'Tiempos Fine', sans-serif;
+    color: black;
+    text-decoration: underline;
+    font-size: 19px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.post-opinon {
+    margin-bottom: 1.5rem;
+}
+
+.post-opinion-text {
+    font-family: 'Tiempos Fine', sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+.post-opinion-author {
+    font-family: 'Suisse Intl', sans-serif;
+    font-size: 0.667rem;
+    line-height: 1.3;
+}
+
+.post-students {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.5rem;
+}
+
+.post-student-item {
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: start;
+    gap: 0.25rem;
+}
+
+/* ============== GALLERY PAGE ================ */
+
+.big-gallery {
+    display: flex;
+    width: 100%;
+    gap: 1.75rem;
+    flex-direction: row;
+}
+
+.gallery-item {
+    display: flex;
+    height: auto;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* ============== MOBILE ================ */
+
+@media screen and (max-width: 768px) {
+    html { font-size: 18px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 22px; }
+    h4 { font-size: 20px; }
+    h5 { font-size: 18px; }
+    p { font-size: 18px; }
+    .links { font-size: 18px; }
+    .menu-mobile { display: flex; }
+    .menu-dekstop { display: none; }
+    .header-links { z-index: 2; }
+    .hero-section { padding-top: 180px; }
+    .post-item, .mentors-item { flex-wrap: wrap; gap: 10px; }
+    .mentors-name { font-size: 18px; }
+    .footer { min-height: 200px; }
+    .footer-text { font-size: 22px; line-height: 1.25; }
+    .post-video-embed  { width: 100%; }
+    .single-post-top { min-height: 390px; }
+    .post-results { grid-template-columns: 1fr 1fr;}
+    .results-item { font-size: 13px; }
+    .post-info { flex-wrap: wrap; }
+    .post-info-left, .post-info-partners { margin-bottom: 1.875rem; }
+    .post-students { grid-template-columns: 1fr 1fr;}
+
+}
+
